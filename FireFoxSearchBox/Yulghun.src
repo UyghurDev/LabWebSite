@@ -1,0 +1,10 @@
+<search 
+ name="Yulghun Dictionary"
+ method="GET"
+ action="http://Dict.Yulghun.com/eu/"
+ queryCharset="utf-8"
+> 
+
+  <input name="" user>
+
+</search>

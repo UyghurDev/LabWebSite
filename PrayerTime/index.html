@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from lab.uyghurdev.net/PrayerTime/ by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 08 Jun 2015 02:55:24 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Sarwan">
+    <meta name="keywords" content="ناماز ۋاقتى, ئۈرۈمچى, خوتەن, قەشقەر" />
+    <title>ناماز ۋاقىتلىرى</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/png" href="images/kaba_logo-2.png" />
+
+    <!-- Bootstrap -->
+    <link href="Styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="Styles/bootstrap-theme.min.css" rel="stylesheet" />
+
+    <link href="Styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="Styles/CustomForPrayerTime.css" rel="stylesheet" />
+    <!--[if lt IE 9]-->
+      <script src="../../oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="../../oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <!--[endif]-->
+</head>
+<body>
+    <div class="container">
+        <div class="row buttonRow">
+            <button type="button" class="btn btn-lg pull-left faltButton" data-toggle="modal" data-target="#About"><i class="fa fa-cog fa-fw"></i> تەڭشەك</button>
+            <div class="btn-group pull-left">
+                <button type="button" class="btn btn-lg dropdown-toggle faltButton" data-toggle="dropdown">
+                    <i class="fa fa-map-marker fa-fw"></i> شەھەر<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu menuBox" role="menu">
+                    <li class="menuItem"><span>ئۈرۈمچى</span></li>
+                    <li class="menuItem"><span>خوتەن</span></li>
+                    <li class="menuItem"><span>تۇرپان</span></li>
+                    <li class="menuItem"><span>غۇلجا</span></li>
+                    <li class="menuItem"><span>قاراماي</span></li>
+                    <li class="menuItem"><span>كورلا</span></li>
+                    <li class="menuItem"><span>ئاقسۇ</span></li>
+                    <li class="menuItem"><span>قەشقەر</span></li>
+                    <li class="menuItem"><span>قۇمۇل</span></li>
+                    <li class="menuItem"><span>چۆچەك</span></li>
+                    <li class="menuItem"><span>يەركەن</span></li>
+                    <li class="menuItem"><span>كۇچا</span></li>
+                    <li class="menuItem"><span>شىخۇ</span></li>
+                    <li class="menuItem"><span>بۈگۈر</span></li>
+                    <li class="menuItem"><span>مارالبېشى</span></li>
+                    <li class="menuItem"><span>كېرىيە</span></li>
+                    <li class="menuItem"><span>بورتالا</span></li>
+                    <li class="menuItem"><span>ئۈچتۇرپان</span></li>
+
+
+
+                </ul>
+            </div>
+
+        </div>
+        <!--<div class="map" id="map"></div>-->
+        <div class="row">
+           
+            <div class="col-lg-2">
+                <div class="panel panel-default col-lg-3 date asr">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div><h3 id="City">خوتەن</h3></div>
+                            <div style="padding-right:20px;"><h1 id="Day">1</h1></div>
+                            <div><h4 id="WeekDay">يەكشەنبە</h4></div>
+                            <div><h5 id="Month">فىۋرال(2-ئاي)</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+              
+            </div>
+        </div>
+
+        <div class="row prayerTimes">
+            <div class="col-lg-2 prayerColum col-md-4 col-sm-12 col-xs-12" >
+                <div class="panel panel-default prayerPanel fajir">
+                    <h3 class="salahName">بامدات<br /><span id="fajir">00:00</span></h3>
+                </div>
+            </div>
+
+            <div class="col-lg-2 prayerColum col-md-4 col-sm-12 col-xs-12">
+                <div class="panel panel-default prayerPanel sunRise">
+                    <h3 class="salahName">كۈن چىقىش <br /><span id="sunRise">00:00</span></h3>
+                </div>
+            </div>
+
+            <div class="col-lg-2 prayerColum col-md-4 col-sm-12 col-xs-12">
+                <div class="panel panel-default prayerPanel zuhr">
+                    <h3 class="salahName">پىشىن<br /><span id="zuhr">00:00</span></h3>
+                </div>
+            </div>
+
+            <div class="col-lg-2 prayerColum col-md-4 col-sm-12 col-xs-12">
+                <div class="panel panel-default prayerPanel asr">
+                    <h3>  </h3>
+                    <h3 class="salahName">ئەسىر<br /><span id="asr">00:00</span></h3>
+                </div>
+            </div>
+
+            <div class="col-lg-2 prayerColum col-md-4 col-sm-12 col-xs-12">
+                <div class="panel panel-default prayerPanel maghrib">
+                    <h3 class="salahName">شام<br /><span id="maghrib">00:00</span></h3>
+                </div>
+            </div>
+
+            <div class="col-lg-2 prayerColum col-md-4 col-sm-12 col-xs-12">
+                <div class="panel panel-default prayerPanel isha">
+                    <h3 class="salahName">خۇپتەن<br /><span id="isha">00:00</span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="About" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <!--<h4 class="modal-title" id="myModalLabel">رايونىمىزدىكى شەھەرلەرنىڭ ناماز ۋاقىتلىرى</h4>-->
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <img src="Images/kaba_logo.png" class="pull-right" style="width:128px;height:128px;" />
+                        <h3>
+                            رايونىمىزدىكى شەھەرلەرنىڭ ناماز ۋاقىتلىرى
+                        </h3>
+                        <h4 class="text-center">0.2 نەشرى</h4>
+                    </p>
+                    <br /><br />
+                    <p>ئىزاھات:</p>
+                    <ul>
+                        <li>
+                            <p>
+                                جەدۋەلدىكى كۈن چىقىش ۋاقتىدىن باشقا ۋاقىتلار 5 ۋاقىت نامازنىڭ ھەر كۈندىكى ئەزان
+
+                                ۋاقتىنى كۆرسىتىدۇ.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                بامدات ۋاقتى- روزا تۇتقۇچىنىڭ ئىمساك (سۇھورلۇقنى توختىتىش) ۋاقتىنى، بامدات
+
+                                نامىزىنىڭ ئەزان ۋاقتىنى كۆرسىتىدۇ.
+                            </p>
+                        </li>
+                        <li><p>شام ۋاقتى- ئىفتار ۋاقتىنى ۋە شام نامىزىنىڭ ئەزان ۋاقتىنى كۆرسىتىدۇ. </p></li>
+
+                        <li>
+                            <p>
+                                ئەزان ۋە تەكبىر ئارىلىقىدا تۆۋەندىكى ھەدىسكە ئەمەل قىلىنىشى لازىم:
+                            </p>
+                            <blockquote class="text-success">
+                                <p>
+                                    «جابىر ئىبنى ئابدۇللا رەزىيەللاھۇ ئەنھۇدىن رىۋايەت قىلىنىدۇكى: پەيغەمبەر ئەلەيھىسسالام
+
+                                    بىلالغا ئەمىر قىلىپ، سەن ئەزان ئېيتقاندا ئەزاننى ئۈزۈپ- ئۈزۈپ ئېيت،
+                                    تەكبىر ئېيتقاندا تەكبىرنى ئۇلاپ- ئۇلاپ ئېيت. سەن ئېيتقان ئەزان بىلەن تەكبىر ئارىسىدا تاماق
+
+                                    يىگۈچى كىشىنىڭ تاماقنى يەپ بولغۇدەك ۋاقتى ئۆتسۇن.»
+                                </p>
+                                <footer class="pull-left">-(تىرمىزى رىۋايىتى)</footer>
+                            </blockquote>
+                        </li>
+                        <li>ئەھمەد مەخسۇم خاقانى تۈزگەن جەدۋەلگە ئاساسەن تۈزۈلدى.</li>
+                        <li>ناماز ۋاقتى ئۇچۇرلىرى <a href="http://www.xsada.com/" target="_blank">www.xsada.com</a> دىن ئېلىندى.</li>
+                    </ul>
+                    <div class="alert alert-danger text-center">
+                        <h5>بۇ پىروگراممىدىكى ئامبارنى ئۆزگەرتىشكە بولمايدۇ!</h5>
+                        </div>
+                        <div class="alert alert-success">
+                            <p>
+                                ئىشلىتىلگەن تېخنىكىلار:
+                                <ul>
+                                    <li><a href="http://jquery.com/" target="_blank">jquery</a></li>
+                                    <li><a href="http://www.getbootstrap.com/" target="_blank">Bootstrap</a></li>
+                                    <li><a href="http://json.org/" target="_blank">JSON</a></li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="alert alert-info text-center">
+                            <h5>ئۇيغۇر يۇمشاق دېتال ئىجادىيەت تورى</h5>
+                            <h5><a href="../index.html" target="_blank">lab.uyghurdev.net</a></h5>
+                            <h5>ئەسلى كود: <a href="https://github.com/Sarwan/PrayerTimes-Uyghur">github</a></h5>
+                        </div>
+
+
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">تاقاش</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="Js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="Js/PrayerTime.js"></script>
+    <script src="Js/Program.js"></script>
+    <script src="Js/ug_shaper.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-274129-27', 'uyghurdev.net');
+        ga('send', 'pageview');
+
+    </script>
+</body>
+
+<!-- Mirrored from lab.uyghurdev.net/PrayerTime/ by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 08 Jun 2015 02:56:25 GMT -->
+</html>

@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from lab.uyghurdev.net/Geolocation/ by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 08 Jun 2015 02:54:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>
+	 جۇغراپىيەلىك ئورۇن بىكىتىش (HTML5 Geolocation Example)
+</title><link href="../Common/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+       
+
+       
+
+       
+
+       
+        .style1
+        {
+            font-size: small;
+        }
+       
+
+       
+
+       
+
+       
+    </style>
+</head>
+<body>
+    <form method="post" action="#" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEwMDUyNjYzMjgPZBYCZg9kFgICAw9kFgICAQ8PFgIeBFRleHQFMjIwMTUt2YrZidmE2Ykg2LPbldm+25XYsSDYptuQ2YrZidmG2YnarSA3LdmD24jZhtmJZGRkgTznpcUgUOneqC4CwX6Pu8rH3ashwwL+8K7Yo15SzFE=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="3790B58D" />
+</div>
+    
+    <table align="center" style="width:945px;" cellpadding="0" cellspacing="0" dir="rtl">
+        <tr>
+            <td>
+                <table cellpadding="0" cellspacing="0" class="TableHeader">
+                    <tr>
+                        <td height="20" bgcolor="#D5DDF3" align="left">
+                            <span id="lblCurrentDate">2015-يىلى سەپەر ئېيىنىڭ 7-كۈنى</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="95">
+                            <table cellpadding="0" cellspacing="0" class="TableHeaderMiddle">
+                                <tr>
+                                    <td width="125"><a href="../Default.html">
+                                        <img alt="UyghurDev.net lab" src="../lab_icon.jpg"  
+                                            style="width: 125px; height: 95px; border-width:0px;" /></a></td>
+                                    <td >
+                                        ئۇيغۇر يۇمشاق دېتال ئىجادىيەت تورى تەجىربىخانىسى<br />
+                                        <br />
+                                        Uyghur Software Developer Network Laboratory</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="20" bgcolor="#D5DDF3">
+                            &nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr>
+            <td style="text-align: center">
+                 جۇغراپىيەلىك ئورۇن بىكىتىش   <br />
+                HTML5 Geolocation Example<br />
+                <hr class="HorzentalLineHeader" dir="rtl" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!--start -->
+                 <meta name="viewport" content="width=620" />
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <article>
+      <p>ئورنىڭىز: <span id="status">تەڭشۈرلىۋاتىدۇ...</span></p>
+      <p>كوردىنات(كەڭلىك، ئۇزۇنلۇق): <span id="cordinat">...</span></p>
+    </article>
+<script>
+    function success(position) {
+        var s = document.querySelector('#status');
+        var c = document.querySelector('#cordinat');
+
+        if (s.className == 'success') {
+            // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+            return;
+        }
+
+        s.innerHTML = "تېپىلدى!";
+        s.className = 'success';
+
+        //added by sarwan
+        c.innerHTML =  + position.coords.latitude + "،" + position.coords.longitude;
+
+        var mapcanvas = document.createElement('div');
+        mapcanvas.id = 'mapcanvas';
+        mapcanvas.style.height = '400px';
+        mapcanvas.style.width = '100%';
+
+        document.querySelector('article').appendChild(mapcanvas);
+
+        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        var myOptions = {
+            zoom: 15,
+            center: latlng,
+            mapTypeControl: false,
+            navigationControlOptions: { style: google.maps.NavigationControlStyle.SMALL },
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: "ئورنىڭىز (تەخمىنەن" + position.coords.accuracy + " مېتېر دائىرىدە)"
+        });
+    }
+
+    function error(msg) {
+        var s = document.querySelector('#status');
+        s.innerHTML = typeof msg == 'string' ? msg : "تېپىلمىدى";
+        s.className = 'fail';
+
+        // console.log(arguments);
+    }
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+        error('تور كۆرگۈچ قوللىمايدۇ');
+    }
+
+</script>  
+   <!--end -->
+
+
+                <br />
+               <img src="../../www.w3.org/html/logo/badge/html5-badge-h-device.png" />
+                <br />
+                مۇناسىۋەتلىك ئۇلىنىشلار<hr align="right" class="HorzentalLineLinks" />
+                <a href="https://github.com/remy/html5demos/blob/master/demos/geo.html">https://github.com/remy/html5demos/blob/master/demos/geo.html
+                </a>
+                <br />
+                <br />
+            </td>
+        </tr>
+    </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td align="center" bgcolor="#D5DDF3">
+                ئۇيغۇر يۇمشاق دېتال ئىجادىيەت تورى تەجرىبىخانىسى<br />
+                Uyghur Software Developer Network Laboratory<br />
+                <span class="style1">Web site:</span><a href="http://www.uyghurdev.net/"><span 
+                    class="style1">www.UyghurDev.net</span></a><span class="style1">&nbsp;&nbsp;&nbsp; 
+                Email:
+                UyghurDev@Gmail.com
+                </span>
+                </td>
+        </tr>
+    </table>
+    
+    </form>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-274129-3");
+pageTracker._trackPageview();
+</script>
+</body>
+
+<!-- Mirrored from lab.uyghurdev.net/Geolocation/ by HTTrack Website Copier/3.x [XR&CO'2010], Mon, 08 Jun 2015 02:54:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>
